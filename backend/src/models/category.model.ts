@@ -1,0 +1,32 @@
+import { Field, GraphQLISODateTime, ID, ObjectType } from "type-graphql";
+import { UserModel } from "./user.model";
+
+@ObjectType()
+export class CategoryModel {
+  @Field(() => ID)
+  id!: string;
+
+  @Field(() => String)
+  title!: string;
+
+  @Field(() => String, { nullable: true })
+  description?: string | null;
+
+  @Field(() => String, { nullable: true })
+  icon?: string | null;
+
+  @Field(() => String, { nullable: true })
+  color?: string | null;
+
+  @Field(() => String)
+  userId!: string;
+
+  @Field(() => UserModel, { nullable: true })
+  user?: UserModel;
+
+  @Field(() => GraphQLISODateTime)
+  createdAt!: Date;
+
+  @Field(() => GraphQLISODateTime)
+  updatedAt!: Date;
+}
