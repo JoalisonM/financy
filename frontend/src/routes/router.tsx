@@ -1,12 +1,18 @@
 import { createBrowserRouter } from "react-router";
 
-import { Login } from "@/pages/auth/login";
-// import { ProtectedRoute } from "@/components/protected-route";
+import { ProtectedRoute } from "@/components/protected-route";
 import { AuthLayout } from "@/layouts/auth-layout";
 import { PublicRoute } from "@/components/public-route";
-// import { AppLayout } from "@/layouts/app-layout";
+import { SignUp } from "@/pages/auth/sign-up";
+import { AppLayout } from "@/layouts/app-layout";
+import { RootPage } from "@/components/root-page";
+import { UserProfile } from "@/pages/user-profile";
 
 export const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <RootPage />,
+  },
   {
     path: "/",
     element: (
@@ -16,31 +22,23 @@ export const router = createBrowserRouter([
     ),
     children: [
       {
-        path: "/login",
-        element: <Login />,
+        path: "/sign-up",
+        element: <SignUp />,
       },
-      // {
-      //   path: "/sign-up",
-      //   element: <SignUp />,
-      // },
     ],
   },
-  // {
-  //   path: "/",
-  //   element: (
-  //     <ProtectedRoute>
-  //       <AppLayout />
-  //     </ProtectedRoute>
-  //   ),
-  //   children: [
-  //     {
-  //       index: true,
-  //       element: <Ideas />,
-  //     },
-  //     {
-  //       path: "/members",
-  //       element: <Members />,
-  //     },
-  //   ],
-  // },
+  {
+    path: "/",
+    element: (
+      <ProtectedRoute>
+        <AppLayout />
+      </ProtectedRoute>
+    ),
+    children: [
+      {
+        path: "/profile",
+        element: <UserProfile />,
+      },
+    ],
+  },
 ]);

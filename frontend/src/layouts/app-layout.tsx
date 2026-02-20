@@ -1,18 +1,18 @@
 import { Menu } from "@/components/menu";
-import { Outlet } from "react-router-dom";
+import type { ReactNode } from "react";
+import { Outlet } from "react-router";
 import { Toaster } from "sonner";
 
-export function AppLayout() {
+export function AppLayout({ children }: { children?: ReactNode }) {
   return (
-    <div className="min-h-screen bg-zinc-200">
+    <div className="min-h-screen">
       <Menu />
 
-      <main className="px-8">
-        <div className="min-h-[calc(100dvh-6rem)] p-12 bg-white rounded-t-4xl">
-          <Outlet />
-        </div>
+      <main className="p-12">
+        <Outlet />
+        {children}
       </main>
-      <Toaster />
+      <Toaster position="top-right" richColors />
     </div>
   );
 }
