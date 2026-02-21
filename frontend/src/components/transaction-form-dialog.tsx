@@ -32,7 +32,7 @@ import { TransactionTypeToggle } from "./transaction-type-toggle";
 
 type TransactionFormDialogProps = ComponentProps<typeof Dialog> & {
   transaction?: Transaction | null;
-  onFinish: VoidFunction;
+  onFinish?: VoidFunction;
 };
 
 export function TransactionFormDialog({
