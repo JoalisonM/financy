@@ -23,7 +23,7 @@ export class TransactionModel {
   description!: string;
 
   @Field(() => Number)
-  value!: number;
+  amount!: number;
 
   @Field(() => TYPE)
   type!: string;
@@ -39,6 +39,9 @@ export class TransactionModel {
 
   @Field(() => UserModel, { nullable: true })
   user?: UserModel;
+
+  @Field(() => GraphQLISODateTime)
+  date!: Date;
 
   @Field(() => GraphQLISODateTime)
   createdAt!: Date;

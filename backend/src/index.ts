@@ -9,6 +9,7 @@ import { buildContext } from "./graphql/context";
 import { UserResolver } from "./resolvers/user.resolver";
 import { CategoryResolver } from "./resolvers/category.resolver";
 import { TransactionResolver } from "./resolvers/transaction.resolver";
+import { InsightsResolver } from "./resolvers/insights.resolver";
 
 async function main() {
   const app = express();
@@ -19,6 +20,7 @@ async function main() {
       UserResolver,
       CategoryResolver,
       TransactionResolver,
+      InsightsResolver,
     ],
     validate: false,
     emitSchemaFile: "./schema.graphql",

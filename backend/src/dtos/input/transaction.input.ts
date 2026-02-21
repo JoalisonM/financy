@@ -1,4 +1,4 @@
-import { Field, InputType } from "type-graphql";
+import { Field, GraphQLISODateTime, InputType } from "type-graphql";
 import { TYPE } from "@prisma/client";
 
 @InputType()
@@ -7,11 +7,14 @@ export class TransactionInput {
   description!: string;
 
   @Field(() => Number)
-  value!: number;
+  amount!: number;
 
   @Field(() => TYPE)
   type!: TYPE;
 
   @Field(() => String)
   categoryId!: string;
+
+  @Field(() => GraphQLISODateTime)
+  date!: Date;
 }

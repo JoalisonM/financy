@@ -24,6 +24,12 @@ export class CategoryModel {
   @Field(() => UserModel, { nullable: true })
   user?: UserModel;
 
+  @Field(() => Number, { nullable: true })
+  countTransactions?: number;
+
+  @Field(() => Number, { nullable: true })
+  transactionsAmount?: number;
+
   @Field(() => GraphQLISODateTime)
   createdAt!: Date;
 

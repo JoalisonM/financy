@@ -2,9 +2,10 @@ import { prismaClient } from "../../prisma/prisma";
 import { CategoryInput } from "../dtos/input/category.input";
 
 export class CategoryService {
-  async findCategoryById(id: string) {
+  async findCategoryById(userId: string, id: string) {
     const category = await prismaClient.category.findUnique({
       where: {
+        userId,
         id,
       },
     });
