@@ -7,6 +7,8 @@ import { SignUp } from "@/pages/auth/sign-up";
 import { AppLayout } from "@/layouts/app-layout";
 import { RootPage } from "@/components/root-page";
 import { UserProfile } from "@/pages/user-profile";
+import { Categories } from "@/pages/categories";
+import { Transactions } from "@/pages/transactions";
 
 export const router = createBrowserRouter([
   {
@@ -38,6 +40,14 @@ export const router = createBrowserRouter([
       {
         path: "/profile",
         element: <UserProfile />,
+      },
+      {
+        path: "/categories",
+        element: <Categories />,
+      },
+      {
+        path: "/transactions",
+        element: <Transactions />,
       },
     ],
   },

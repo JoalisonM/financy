@@ -2,7 +2,7 @@ import z from "zod";
 
 export const userInput = z.object({
   name: z.string().nonempty("O nome é obrigatório"),
-  email: z.email("E-mail inválido").nonempty("O e-mail é obrigatório"),
+  email: z.email("E-mail inválido").optional(),
 });
 
 export type UserInput = z.infer<typeof userInput>;

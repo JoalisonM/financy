@@ -49,7 +49,7 @@ export function Login() {
       <form className="flex flex-col" onSubmit={handleSubmit(onSubmit)}>
         <div className="flex flex-col items-center justify-center gap-1 mb-8">
           <h1 className="text-[20px] leading-7 font-bold">Fazer login</h1>
-          <p className="text-md leading-6 text-gray-600">
+          <p className="text-base leading-6 text-gray-600">
             Entre na sua conta para continuar
           </p>
         </div>
@@ -94,11 +94,13 @@ export function Login() {
 
           <div className="flex justify-between">
             <div className="flex items-center gap-2">
-              <Checkbox />
-              <Label>Lembrar-me</Label>
+              <Checkbox id="remember" />
+              <Label htmlFor="remember">Lembrar-me</Label>
             </div>
 
-            <Button variant="link">Recuperar senha</Button>
+            <Button variant="link" className="text-sm">
+              Recuperar senha
+            </Button>
           </div>
         </div>
 

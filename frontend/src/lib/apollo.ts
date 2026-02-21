@@ -1,4 +1,3 @@
-import { useAuthStore } from "@/stores/auth";
 import {
   ApolloClient,
   ApolloLink,
@@ -12,7 +11,8 @@ const httpLink = new HttpLink({
 });
 
 const authLink = new SetContextLink((prevContext) => {
-  const token = useAuthStore.getState().token;
+  const storage = localStorage.getItem("auth-storage");
+  const token = storage ? JSON.parse(storage)?.state?.token : null;
 
   return {
     headers: {

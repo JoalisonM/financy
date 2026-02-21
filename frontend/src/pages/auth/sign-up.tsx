@@ -6,7 +6,6 @@ import {
   InputGroupAddon,
   InputGroupInput,
 } from "@/components/ui/input-group";
-import { Checkbox } from "@/components/ui/checkbox";
 import { Button } from "@/components/ui/button";
 import { Label } from "@/components/ui/label";
 import { signUpInput, type SignUpInput } from "@/dtos/sign-up-dto";
@@ -49,7 +48,7 @@ export function SignUp() {
       <form className="flex flex-col" onSubmit={handleSubmit(onSubmit)}>
         <div className="flex flex-col items-center justify-center gap-1 mb-8">
           <h1 className="text-[20px] leading-7 font-bold">Criar conta</h1>
-          <p className="text-md leading-6 text-gray-600">
+          <p className="text-base leading-6 text-gray-600">
             Comece a controlar suas finanças ainda hoje
           </p>
         </div>
@@ -108,17 +107,6 @@ export function SignUp() {
               A senha deve ter no mínimo 8 caracteres
             </span>
           </FormItem>
-
-          <div className="flex justify-between">
-            <div className="flex items-center gap-2">
-              <Checkbox />
-              <Label>Lembrar-me</Label>
-            </div>
-
-            <Button className="text-sm" variant="link">
-              Recuperar senha
-            </Button>
-          </div>
         </div>
 
         <footer className="flex flex-col mt-6 gap-6">

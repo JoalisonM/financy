@@ -45,7 +45,6 @@
   --color-sidebar-ring: var(--sidebar-ring);
 
   /*Theme*/
-  --font-inter: "Inter", sans-serif;
   --color-brand-base: #1f6f43;
   --color-brand-dark: #124b2b;
   --color-danger: #ef4444;
@@ -82,7 +81,7 @@
 }
 
 :root {
-  --radius: 0.625rem;
+  --radius: 0.25rem;
   --background: oklch(1 0 0);
   --foreground: oklch(0.13 0.028 261.692);
   --card: oklch(1 0 0);
@@ -114,6 +113,7 @@
   --sidebar-accent-foreground: oklch(0.21 0.034 264.665);
   --sidebar-border: oklch(0.928 0.006 264.531);
   --sidebar-ring: oklch(0.707 0.022 261.325);
+  --font-sans: "Inter", sans-serif;
 }
 
 .dark {

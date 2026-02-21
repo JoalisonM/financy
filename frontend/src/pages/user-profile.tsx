@@ -14,11 +14,13 @@ import { LogOut, Mail, UserRound } from "lucide-react";
 import { useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router";
+import { toast } from "sonner";
 
 export function UserProfile() {
   const navigate = useNavigate();
   const user = useAuthStore((state) => state.user);
   const logout = useAuthStore((state) => state.logout);
+  const updateUser = useAuthStore((state) => state.updateUser);
 
   const { handleSubmit, register, setValue } = useForm({
     resolver: zodResolver(userInput),
@@ -33,10 +35,18 @@ export function UserProfile() {
 
   function handleLogout() {
     logout();
-    navigate("/login");
+    navigate("/");
   }
 
-  async function onSubmit({ name }: UserInput) {}
+  async function onSubmit({ name }: UserInput) {
+    try {
+      await updateUser({ name });
+
+      toast.success("Perfil atualizado com sucesso!");
+    } catch {
+      toast.error("Erro ao atualizar perfil");
+    }
+  }
 
   return (
     <div className="flex justify-center mz-auto">
@@ -50,7 +60,7 @@ export function UserProfile() {
 
           <div className="flex flex-col items-center gap-0.5">
             <h1 className="text-[20px] leading-7 font-bold">{user?.name}</h1>
-            <p className="text-md leading-6 text-gray-600">{user?.email}</p>
+            <p className="text-base leading-6 text-gray-600">{user?.email}</p>
           </div>
         </div>
 
