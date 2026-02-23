@@ -17,8 +17,8 @@ import { useState } from "react";
 import { Link } from "react-router";
 
 export function Dashboard() {
-  const { insights } = useInsights();
   const { categories } = useCategory();
+  const { insights, refetchInsights } = useInsights();
   const { transactions, refetchTransactions } = useTransaction({ limit: 5 });
 
   const [openDialog, setOpenDialog] = useState(false);
@@ -27,9 +27,8 @@ export function Dashboard() {
     setOpenDialog(true);
   }
 
-  function handleToggleDialog(value: boolean) {
-    setOpenDialog(value);
-
+  async function onFinishTransaction() {
+    refetchInsights();
     refetchTransactions({ limit: 5 });
   }
 
@@ -121,7 +120,8 @@ export function Dashboard() {
 
       <TransactionFormDialog
         open={openDialog}
-        onOpenChange={handleToggleDialog}
+        onOpenChange={setOpenDialog}
+        onFinish={onFinishTransaction}
       />
     </div>
   );
